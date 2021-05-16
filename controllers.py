@@ -2,12 +2,19 @@
 
 from fastapi import FastAPI
 from starlette.requests import Request
- 
+from starlette.templating import Jinja2Templates
+
+
 app = FastAPI(
     title='FastAPIでつくるtoDoアプリケーション',
     description='FastAPIチュートリアル：FastAPI(とstarlette)でシンプルなtoDoアプリを作りましょう．',
     version='0.9 beta'
 )
 
+# new テンプレート関連の設定 (jinja2)
+templates = Jinja2Templates(directory="templates")
+jinja_env = templates.env  # Jinja2.Environment : filterやglobalの設定用
+ 
+ 
 def index(request: Request):
-    return {'Hello': 'World'}
+    return templates.TemplateResponse('index.html', {'request': request})
