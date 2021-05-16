@@ -15,6 +15,13 @@ app = FastAPI(
 templates = Jinja2Templates(directory="templates")
 jinja_env = templates.env  # Jinja2.Environment : filterやglobalの設定用
  
- 
+# メイン画面
 def index(request: Request):
     return templates.TemplateResponse('index.html', {'request': request})
+
+# 管理画面
+def admin(request: Request):
+    return templates.TemplateResponse('admin.html',
+                                      {'request': request,
+                                       'username': 'admin'})
+
