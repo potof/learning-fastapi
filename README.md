@@ -15,6 +15,16 @@ pip3 install requests
 
 # Install jinja2
 pip3 install jinja2
+
+# Install python-multipart
+pip3 install python-multipart
+
+# Create DB
+python3 ./create_table.py
+
+# Run
+python3 ./run.py
+
+# > http://localhost:8000/
+
 ```
-
-
